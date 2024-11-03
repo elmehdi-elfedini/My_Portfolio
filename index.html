@@ -24,6 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -31,20 +34,31 @@
       });
     })();
   </script>
-  <script type="text/javascript">
-    window.onload = function () {
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        emailjs.sendForm('service_wa0yvcm', 'template_szt0cm2', this)
-          .then(function (response) {
-            alert('✅ Success! Your message has been sent successfully. Thank you for reaching out!');
-          }, function (error) {
-            alert('⚠️ Something went wrong while sending your message. Please try again later. If the issue persists, feel free to contact me directly.');
-          });
-      });
-    }
 
-  </script>
+ <script type="text/javascript">
+  window.onload = function () {
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      emailjs.sendForm('service_wa0yvcm', 'template_szt0cm2', this)
+        .then(function (response) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent Successfully!',
+            text: 'Your message has been sent successfully. Thank you for reaching out!',
+            confirmButtonText: 'OK'
+          });
+        }, function (error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong while sending your message. Please try again later. If the issue persists, feel free to contact me directly.',
+            confirmButtonText: 'Try Again'
+          });
+        });
+    });
+  }
+</script>
+
 
 </head>
 
@@ -64,12 +78,14 @@
 
       <div class="sidebar-info">
 
-        <figure class="avatar-box">
-          <img src="./assets/images/profile.png" alt="Richard hanrick" width="80">
+        <figure class="avatar-box" style="width: 200px; height: 200px; overflow: hidden;">
+          <img src="./assets/images/profile.png" alt="EL MEHDI EL FEDINI" style="width: 100%; height: 100%; object-fit: cover;">
         </figure>
+        
+        
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">EL MEHDI EL FEDINI</h1>
+          <h1 class="name" title="EL MEHDI EL FEDINI">EL MEHDI EL FEDINI</h1>
 
           <p class="title">Data Scientist & Data Analyst</p>
         </div>
@@ -644,6 +660,7 @@
               <h4 class="h4 timeline-item-title">NLP Engineer at Laboratory of Epidemiology, Fez</h4>
 
               <span>2024</span>
+              
 
               <p class="timeline-text">
                 During my internship at the Laboratory of Epidemiology, Clinical Research, and Community Health (FMPDF),
@@ -670,6 +687,32 @@
 
             </li>
 
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Scientist à CBL Conseil | Rabat </h4>
+
+              <span>2024</span>
+
+              <p class="timeline-text">
+                Generative Artificial Intelligence Appliquée au Profilage des Compétences
+                Entrepreneuriales et aux Facteurs de Succès de Projet Pertinents       
+                    </p>
+
+            </li>    
+            
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Data Scientist at  CBL Conseil | Rabat </h4>
+
+              <span>2024</span>
+
+              <p class="timeline-text">
+                Generative Artificial Intelligence Appliquée au Profilage des Compétences
+                Entrepreneuriales et aux Facteurs de Succès de Projet Pertinents       
+                    </p>
+
+            </li> 
+            
           </ol>
 
 
